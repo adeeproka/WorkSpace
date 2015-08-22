@@ -1,0 +1,99 @@
+package com.java.lab_unit2;
+
+public class EmployeeList 
+{
+
+	private Employee[] employees;
+	
+	private int count=0;
+	
+	public EmployeeList()
+	{
+		int size = Input.getInteger("Enter the list size \n");
+		
+		this.employees = new Employee[size];
+		
+				
+	}
+
+	public void add() 
+	{
+		
+		if(this.count<this.employees.length)
+			{
+				Employee employee = new Employee();
+				boolean identifierMatches = false;
+				int index=0;
+				
+				while (!identifierMatches && index < this.count)
+				
+					if(this.employees[index++].equals(employee))
+					
+						identifierMatches = false;
+				
+						if (identifierMatches)
+				
+							System.out.println("Identity already in use \n"); 
+				
+						else
+				
+						this.employees[this.count++] = employee; 
+				
+			}
+		else
+		System.out.println("List is full \n");
+			
+		                                   
+	}
+
+	public void display() 
+	{
+		int index;
+		for(index = 0; index < this.count; index++)
+		{
+			System.out.println("Displaying List of Employees");
+			System.out.println(this.employees[index]);
+		}
+		
+	}
+
+	public void displayBySalary() 
+	{	
+		int index;
+		double totalSalary = 0;
+		
+		for(index = 0; index < this.count ; index++)
+		{
+			System.out.println("Displaying list of Employees by Salary");
+			totalSalary =totalSalary + this.employees[index].getSalary();
+			System.out.println(totalSalary);
+		}
+		
+	}
+
+	public void displayByTown() 
+	{
+		int index;
+		String town = Input.getString("Enter the town name:");
+		System.out.println("Name of the town is:" + town);
+		
+		for(index = 0; index < this.count; index++)
+		{
+			System.out.println("displaying the employees of:" + town);
+			System.out.println(this.employees[index].getTown());
+			
+			if(this.employees[index].getTown().equalsIgnoreCase(town))
+			{
+				System.out.println("list of Employees by town:" + this.employees[index]);
+			}
+			else
+				System.out.println("Town Not Found!!");
+		}
+		
+	}
+	
+	
+	
+	
+	
+}

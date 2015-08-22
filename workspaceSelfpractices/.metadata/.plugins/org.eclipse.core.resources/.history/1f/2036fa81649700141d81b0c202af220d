@@ -1,0 +1,12 @@
+package com.java.chapterTwo;
+
+public class StudentTest
+{
+	public static void main(String []args)
+	{
+		StudentList student =  new StudentList();
+		
+		System.out.println("0:Exit \n1:Add Student \n2:Display all students \n3:Display by Grades \n4:Display by Town");
+		
+	}
+}
